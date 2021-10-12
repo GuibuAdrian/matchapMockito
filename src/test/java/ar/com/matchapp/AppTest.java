@@ -1,5 +1,6 @@
 package ar.com.matchapp;
 
+import ar.com.matchapp.error.PlayerException;
 import org.junit.Assert;
 import org.junit.Test;
 import ar.com.matchapp.model.Player;
@@ -25,6 +26,20 @@ public class AppTest {
 		when(teamR.getTeamPlayers()).thenReturn(PlayerDAO.getPlayerDAO().findByTeam(TeamDAO.getTeamDAO().read(1)));
 	    Assert.assertEquals( teamR.getTeamPlayers().get(0).getName(), "Armani" );
 	}
+
+    @Test(expected = PlayerException.class)
+    public void playerNotFoundError_byId(){
+        PlayerDAO playerDAO = PlayerDAO.getPlayerDAO();
+
+        playerDAO.read(90);
+    }
+
+    @Test(expected = PlayerException.class)
+    public void playerNotFoundError_byName(){
+        PlayerDAO playerDAO = PlayerDAO.getPlayerDAO();
+
+        playerDAO.read("Messi");
+    }
 
 	private void initialize() {
     	TeamDAO teamDB = new TeamDAO();
