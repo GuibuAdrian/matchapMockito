@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import ar.com.matchapp.model.Resultado;
 import ar.com.matchapp.model.TeamRepository;
 
 public class MatchService {
@@ -11,6 +12,7 @@ public class MatchService {
 	private TeamRepository visitante;
 	private int nroFecha;
 	private Date dateMatch;
+	private Resultado resultado;
 
 	public void registerTeams(TeamRepository team1, TeamRepository team2, int fecha, String dateS) {
 		this.setLocal(team1);
