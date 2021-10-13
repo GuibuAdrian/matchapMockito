@@ -4,20 +4,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import ar.com.matchapp.model.Resultado;
+import ar.com.matchapp.model.Score;
 import ar.com.matchapp.model.TeamRepository;
 
 public class MatchService {
-	private TeamRepository local;
-	private TeamRepository visitante;
-	private int nroFecha;
+	private TeamRepository home;
+	private TeamRepository away;
+	private int matchDay;
 	private Date dateMatch;
-	private Resultado resultado;
+	private Score score;
 
-	public void registerTeams(TeamRepository team1, TeamRepository team2, int fecha, String dateS) {
-		this.setLocal(team1);
-		this.setVisitante(team2);
-		this.setFecha(fecha);
+	public void registerTeams(TeamRepository team1, TeamRepository team2, int matchDay, String dateS) {
+		this.setHome(team1);
+		this.setAway(team2);
+		this.setMatchDay(matchDay);
 
 	    SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	    try {
@@ -27,35 +27,34 @@ public class MatchService {
 		}
 	}
 
-	public void printFecha() {
-		System.out.println("Fecha Nro: "+this.getFecha()+" Dia: "+this.getDateMatch());
-		local.printTeam();
-		visitante.printTeam();
+	public void printMatchDay() {
+		System.out.println("Match Day: "+this.getMatchDay()+" Date: "+this.getDateMatch());
+		home.printTeam();
+		away.printTeam();
 	}
 
-	public TeamRepository getLocal() {
-		return local;
+	public TeamRepository getHome() {
+		return home;
 	}
 
-	public void setLocal(TeamRepository local) {
-		this.local = local;
+	public void setHome(TeamRepository local) {
+		this.home = home;
 	}
 
-	public TeamRepository getVisitante() {
-		return visitante;
+	public TeamRepository getAway() {
+		return away;
 	}
 
-	public void setVisitante(TeamRepository visitante) {
-		this.visitante = visitante;
+	public void setAway(TeamRepository away) {
+		this.away = away;
 	}
 
-	public int getFecha() {
-		return nroFecha;
+	public int getMatchDay() {
+		return matchDay;
 	}
-
 	
-	private void setFecha(int fecha) {
-		this.nroFecha = fecha;
+	private void setMatchDay(int matchDay) {
+		this.matchDay = matchDay;
 	}
 
 	public Date getDateMatch() {

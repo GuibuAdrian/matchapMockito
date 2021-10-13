@@ -1,4 +1,4 @@
-package ar.com.matchapp.error;
+package ar.com.matchapp.enums;
 
 public enum PlayerErrorCode {
     NOT_FOUND(500);

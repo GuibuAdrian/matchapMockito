@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import ar.com.matchapp.error.PlayerErrorCode;
+import ar.com.matchapp.enums.PlayerErrorCode;
 import ar.com.matchapp.error.PlayerException;
 import ar.com.matchapp.interfaces.PlayerDAOI;
 
