@@ -1,9 +1,11 @@
 package ar.com.matchapp.model;
 
+import ar.com.matchapp.enums.TeamErrorCode;
+import ar.com.matchapp.error.TeamException;
+import ar.com.matchapp.interfaces.TeamDAOI;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import ar.com.matchapp.interfaces.TeamDAOI;
 
 public class TeamDAO implements TeamDAOI {
 	private static TeamDAO teamDao;
@@ -29,6 +31,11 @@ public class TeamDAO implements TeamDAOI {
 	@Override
 	public Team read(int id) {
 		return (Team) getTeamDAO().teamList.stream().filter(team -> team.getId() == id).findFirst().get();
+	}
+
+	@Override
+	public Team read(String name) {
+		return (Team) getTeamDAO().teamList.stream().filter(team -> team.getName().equals(name)).findFirst().orElseThrow( () -> new TeamException(TeamErrorCode.NOT_FOUND));
 	}
 
 	@Override

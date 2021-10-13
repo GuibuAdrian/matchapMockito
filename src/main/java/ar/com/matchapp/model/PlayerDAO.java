@@ -62,7 +62,7 @@ public class PlayerDAO implements PlayerDAOI {
 		Player medioCR = new Player("Carrascal", 10, 1010101010, "medio C", TeamDAO.getTeamDAO().read(1));
 		Player medioC2R = new Player("E. Perez", 24, 242424242, "medio C", TeamDAO.getTeamDAO().read(1));
 		Player medioC3R = new Player("Zuculini", 5, 5555555, "medio C", TeamDAO.getTeamDAO().read(1));
-		Player medioC4R = new Player("De La Cruz", 11, 112111, "medio C", TeamDAO.getTeamDAO().read(1));
+		Player medioC4R = new Player("De la Cruz", 11, 112111, "medio C", TeamDAO.getTeamDAO().read(1));
 		Player delantero1R = new Player("Alvarez", 9, 9999999, "delantero", TeamDAO.getTeamDAO().read(1));
 		Player delantero2R = new Player("Romero", 19, 19193232, "delantero", TeamDAO.getTeamDAO().read(1));
 		Player arqueroN = new Player("Aguerre", 1, 1111111, "arquero", TeamDAO.getTeamDAO().read(2));

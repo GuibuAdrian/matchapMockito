@@ -14,17 +14,17 @@ public class App
 {
     public static void main( String[] args )
     {
-        TeamRepository newells = new TeamRepository(TeamDAO.getTeamDAO().read(2));
+        TeamRepository newells = new TeamRepository(TeamDAO.getTeamDAO().read("Newells"));
 
-        TeamRepository river = new TeamRepository(TeamDAO.getTeamDAO().read(1));
+        TeamRepository river = new TeamRepository(TeamDAO.getTeamDAO().read("River"));
  
         MatchService fecha11 = new MatchService();
 
-        Goal goal = new Goal(5, PlayerDAO.getPlayerDAO().read(112111));
-        Goal goal2 = new Goal(35, PlayerDAO.getPlayerDAO().read(32323232));
-        Goal goal3 = new Goal(61, PlayerDAO.getPlayerDAO().read(9999999));
-        Goal goal4 = new Goal(77, PlayerDAO.getPlayerDAO().read(9999999));
-        Goal goal5 = new Goal(72, PlayerDAO.getPlayerDAO().read(1010101010));
+        Goal goal = new Goal(5, river.findByName("De la Cruz"));
+        Goal goal2 = new Goal(35, newells.findById(32323232));
+        Goal goal3 = new Goal(61, river.findById(9999999));
+        Goal goal4 = new Goal(77, river.findById(9999999));
+        Goal goal5 = new Goal(72, river.findById(1010101010));
         List<Goal> homeGoals = new ArrayList<Goal>();
         List<Goal> awayGoals = new ArrayList<Goal>();
         homeGoals.add(goal2);

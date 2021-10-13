@@ -2,6 +2,8 @@ package ar.com.matchapp.model;
 
 import java.util.List;
 
+import ar.com.matchapp.enums.PlayerErrorCode;
+import ar.com.matchapp.error.PlayerException;
 import ar.com.matchapp.interfaces.TeamRepositoryI;
 
 public class TeamRepository implements TeamRepositoryI {
@@ -21,8 +23,12 @@ public class TeamRepository implements TeamRepositoryI {
 
 	@Override
 	public Player findByName(String name) {
-		Player player = PlayerDAO.getPlayerDAO().read(name);
-		return player;
+		return this.getTeamPlayers().stream().filter(player -> player.getName().equals(name) ).findFirst().orElseThrow(() -> new PlayerException(PlayerErrorCode.NOT_FOUND));
+	}
+
+	@Override
+	public Player findById(int id) {
+		return this.getTeamPlayers().stream().filter(player -> player.getId() == id ).findFirst().orElseThrow(() -> new PlayerException(PlayerErrorCode.NOT_FOUND));
 	}
 
 	public void printTeam() {
