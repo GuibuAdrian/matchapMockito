@@ -29,7 +29,8 @@ public class MatchService {
 	}
 
 	public void printMatchDay() {
-		System.out.println("Match Day: "+this.getMatchDay()+" Date: "+this.getDateMatch());
+		System.out.printf("Match Day: "+this.getMatchDay()+"\nDate: "+this.getDateMatch()+"\n");
+		System.out.println();
 		score.printScore();
 	}
 
