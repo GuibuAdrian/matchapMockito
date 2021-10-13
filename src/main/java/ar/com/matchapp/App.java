@@ -57,7 +57,7 @@ public class App
         
         fecha11.registerTeams(newells, river, 11, "15/09/2021 20:30:00");
         
-        fecha11.printFecha();
+        fecha11.printMatchDay();
     }
 
 	private static void loadTeam(Player player1, Player player2, Player player3, Player player4, Player player5, Player player6,
