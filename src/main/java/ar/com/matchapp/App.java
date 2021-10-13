@@ -1,11 +1,10 @@
 package ar.com.matchapp;
 
-import ar.com.matchapp.model.Player;
-import ar.com.matchapp.model.PlayerDAO;
-import ar.com.matchapp.model.Team;
-import ar.com.matchapp.model.TeamDAO;
-import ar.com.matchapp.model.TeamRepository;
+import ar.com.matchapp.model.*;
 import ar.com.matchapp.service.MatchService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Hello world!
@@ -54,9 +53,22 @@ public class App
         		teamDB.read(1));
  
         MatchService fecha11 = new MatchService();
-        
-        fecha11.registerTeams(newells, river, 11, "15/09/2021 20:30:00");
-        
+
+        Goal goal = new Goal(5, medioC4R);
+        Goal goal2 = new Goal(35, delanteroN);
+        Goal goal3 = new Goal(61, delantero1R);
+        Goal goal4 = new Goal(77, delantero1R);
+        Goal goal5 = new Goal(72, medioCR);
+        List<Goal> homeGoals = new ArrayList<Goal>();
+        List<Goal> awayGoals = new ArrayList<Goal>();
+        homeGoals.add(goal2);
+        awayGoals.add(goal);
+        awayGoals.add(goal5);
+        awayGoals.add(goal3);
+        awayGoals.add(goal4);
+        Score scoreFecha11 = new Score(newells, river, homeGoals, awayGoals);
+
+        fecha11.registerTeams(newells, river, 11, "15/09/2021 20:30:00", scoreFecha11);
         fecha11.printMatchDay();
     }
 

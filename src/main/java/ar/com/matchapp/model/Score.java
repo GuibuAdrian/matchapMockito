@@ -1,18 +1,35 @@
 package ar.com.matchapp.model;
 
-public class Score{
-	private Team home;
-	private Team away;
-	public Team getAwayTeam() {
+import java.util.List;
+
+public class Score {
+	private TeamRepository home;
+	private TeamRepository away;
+	private List<Goal> homeGoals;
+	private List<Goal> awayGoals;
+
+	public Score(TeamRepository home, TeamRepository away, List<Goal> homeGoals, List<Goal> awayGoal) {
+		this.home = home;
+		this.away = away;
+		this.homeGoals = homeGoals;
+		this.awayGoals = awayGoal;
+	}
+
+	public void printScore(){
+		System.out.println(home.getTeam().getName());
+		homeGoals.forEach(goal -> {
+			System.out.println(goal);
+		});
+
+		System.out.println(away.getTeam().getName());
+		awayGoals.forEach(goal -> {
+			System.out.println(goal);
+		});
+	}
+	public TeamRepository getAwayTeam() {
 		return away;
 	}
-	public void setAwayTeam(Team away) {
-		this.away = away;
-	}
-	public Team getHome() {
+	public TeamRepository getHome() {
 		return home;
-	}
-	public void setHomeTeam(Team local) {
-		this.home = home;
 	}
 }
