@@ -31,7 +31,7 @@ public class MatchService {
 	public void printMatchDay() {
 		System.out.printf("Match Day: "+this.getMatchDay()+"\nDate: "+this.getDateMatch()+"\n");
 		System.out.println();
-		score.printScore();
+		score.printScore(home.getTeam().getName(), away.getTeam().getName());
 	}
 
 	public TeamRepository getHome() {
@@ -49,4 +49,7 @@ public class MatchService {
 	public Date getDateMatch() {
 		return dateMatch;
 	}
+
+	public Score getScore() { return score; }
+
 }
