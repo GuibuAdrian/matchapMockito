@@ -20,11 +20,11 @@ public class App
  
         MatchService fecha11 = new MatchService();
 
-        Goal goal = new Goal(5, river.findByName("De la Cruz"));
-        Goal goal2 = new Goal(35, newells.findById(32323232));
-        Goal goal3 = new Goal(61, river.findById(9999999));
-        Goal goal4 = new Goal(77, river.findById(9999999));
-        Goal goal5 = new Goal(72, river.findById(1010101010));
+        Goal goal = Goal.Builder.newInstance().minute(5).player(river.findByName("De la Cruz")).build();
+        Goal goal2 = Goal.Builder.newInstance().minute(35).player(newells.findById(32323232)).build();
+        Goal goal3 = Goal.Builder.newInstance().minute(61).player(river.findById(9999999)).build();
+        Goal goal4 = Goal.Builder.newInstance().minute(77).player(river.findById(9999999)).build();
+        Goal goal5 = Goal.Builder.newInstance().minute(72).player(river.findById(1010101010)).build();
         Score scoreFecha11 = new Score();
         scoreFecha11.addHomeGoal(goal2);
         scoreFecha11.addAwayGoal(goal).addAwayGoal(goal5).addAwayGoal(goal3).addAwayGoal(goal4);
