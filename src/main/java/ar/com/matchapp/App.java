@@ -40,8 +40,9 @@ public class App
         Gambler gambler = new Gambler("Han Solo", 1);
         BetHomeWinner bhw = new BetHomeWinner();
         BetAwayWinner baw = new BetAwayWinner();
+        BetPlayerScoreFirstGoal bpsfg = new BetPlayerScoreFirstGoal();
 
-        Bet betHan = new Bet(1000, baw, gambler, fecha11);
+        Bet betHan = new Bet(1000, bpsfg, gambler, fecha11, PlayerDAO.getPlayerDAO().read(112111));
 
         System.out.println( betHan.gamble());
     }

@@ -1,7 +1,7 @@
 package ar.com.matchapp.interfaces;
 
-import ar.com.matchapp.service.MatchService;
+import ar.com.matchapp.model.Bet;
 
 public interface BetTypeI {
-    boolean win(MatchService match);
+    boolean win(Bet bet);
 }

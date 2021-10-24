@@ -8,16 +8,18 @@ public class Bet {
     private BetTypeI betTypeI;
     private Gambler gambler;
     private MatchService match;
+    private Player playerThatScoreFirstGoal;
 
-    public Bet(int amountGamble, BetTypeI betTypeI, Gambler gambler, MatchService matchS) {
+    public Bet(int amountGamble, BetTypeI betTypeI, Gambler gambler, MatchService matchS, Player playerThatScoreFirstGoal) {
         this.amountGamble = amountGamble;
         this.betTypeI = betTypeI;
         this.gambler = gambler;
         this.match = matchS;
+        this.playerThatScoreFirstGoal = playerThatScoreFirstGoal;
     }
 
     public int gamble(){
-        return betTypeI.win(this.match) ? this.amountGamble : 0;
+        return betTypeI.win(this) ? this.amountGamble : 0;
     }
 
     public int getMinAmount() { return amountGamble; }
@@ -29,4 +31,8 @@ public class Bet {
     public void setBetTypeI(BetTypeI betTypeI) { this.betTypeI = betTypeI; }
 
     public void setAmountGamble(int i) { this.amountGamble = i; }
+
+    public MatchService getMatch() { return match; }
+
+    public Player getPlayerThatScoreFirstGoal() { return playerThatScoreFirstGoal; }
 }

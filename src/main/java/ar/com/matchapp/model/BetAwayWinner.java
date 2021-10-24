@@ -5,7 +5,7 @@ import ar.com.matchapp.service.MatchService;
 
 public class BetAwayWinner implements BetTypeI {
     @Override
-    public boolean win(MatchService match) {
-        return match.getScore().getAwayGoals().size() > match.getScore().getHomeGoals().size();
+    public boolean win(Bet bet) {
+        return bet.getMatch().getScore().getAwayGoals().size() > bet.getMatch().getScore().getHomeGoals().size();
     }
 }
