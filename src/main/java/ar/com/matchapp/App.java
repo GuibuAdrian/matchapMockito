@@ -25,14 +25,9 @@ public class App
         Goal goal3 = new Goal(61, river.findById(9999999));
         Goal goal4 = new Goal(77, river.findById(9999999));
         Goal goal5 = new Goal(72, river.findById(1010101010));
-        List<Goal> homeGoals = new ArrayList<Goal>();
-        List<Goal> awayGoals = new ArrayList<Goal>();
-        homeGoals.add(goal2);
-        awayGoals.add(goal);
-        awayGoals.add(goal5);
-        awayGoals.add(goal3);
-        awayGoals.add(goal4);
-        Score scoreFecha11 = new Score(homeGoals, awayGoals);
+        Score scoreFecha11 = new Score();
+        scoreFecha11.addHomeGoal(goal2);
+        scoreFecha11.addAwayGoal(goal).addAwayGoal(goal5).addAwayGoal(goal3).addAwayGoal(goal4);
 
         fecha11.registerTeams(newells, river, 11, "15/09/2021 20:30:00", scoreFecha11);
         fecha11.printMatchDay();

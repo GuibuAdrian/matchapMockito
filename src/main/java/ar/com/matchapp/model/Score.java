@@ -1,5 +1,6 @@
 package ar.com.matchapp.model;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,9 +10,9 @@ public class Score {
 	private List<Goal> homeGoals;
 	private List<Goal> awayGoals;
 
-	public Score(List<Goal> homeGoals, List<Goal> awayGoal) {
-		this.homeGoals = homeGoals;
-		this.awayGoals = awayGoal;
+	public Score() {
+		this.homeGoals = new ArrayList<Goal>();
+		this.awayGoals = new ArrayList<Goal>();
 	}
 
 	public void printScore(String home, String away){
@@ -24,6 +25,16 @@ public class Score {
 		awayGoals.forEach(goal -> {
 			System.out.println(goal);
 		});
+	}
+
+	public Score addHomeGoal(Goal goal) {
+		this.getHomeGoals().add(goal);
+		return this;
+	}
+
+	public Score addAwayGoal(Goal goal) {
+		this.getAwayGoals().add(goal);
+		return this;
 	}
 
 	public List<Goal> getHomeGoals() { return homeGoals; }
