@@ -31,8 +31,6 @@ public class AppTest {
         when(scoreM.getHomeGoals().size()).thenReturn(4);
         when(scoreM.getAwayGoals().size()).thenReturn(1);
         BetHomeWinner betHomeWinner = new BetHomeWinner();
-        bet.setBetTypeI(betHomeWinner);
-        bet.setAmountGamble(100);
         Assert.assertEquals( betHomeWinner, 100 );
     }
 

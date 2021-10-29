@@ -52,4 +52,7 @@ public class MatchService {
 
 	public Score getScore() { return score; }
 
+	public int getAwayTotalGoals() { return this.getScore().getAwayGoals().size(); }
+	public int getHomeotalGoals() { return this.getScore().getHomeGoals().size(); }
+
 }

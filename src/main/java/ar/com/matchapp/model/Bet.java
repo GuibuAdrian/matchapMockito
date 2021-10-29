@@ -8,14 +8,47 @@ public class Bet {
     private BetTypeI betTypeI;
     private Gambler gambler;
     private MatchService match;
-    private Player playerThatScoreFirstGoal;
+    private Player playerThatScoreFirstGoal;//optional
+    private int numberOfGoals;
 
-    public Bet(int amountGamble, BetTypeI betTypeI, Gambler gambler, MatchService matchS, Player playerThatScoreFirstGoal) {
-        this.amountGamble = amountGamble;
-        this.betTypeI = betTypeI;
-        this.gambler = gambler;
-        this.match = matchS;
-        this.playerThatScoreFirstGoal = playerThatScoreFirstGoal;
+    public Bet(BetBuilder builder) {
+        this.amountGamble = builder.amountGamble;
+        this.betTypeI = builder.betTypeI;
+        this.gambler = builder.gambler;
+        this.match = builder.match;
+        this.playerThatScoreFirstGoal = builder.playerThatScoreFirstGoal;
+        this.numberOfGoals = builder.numberOfGoals;
+    }
+
+
+    public static class BetBuilder {
+        private int amountGamble;
+        private BetTypeI betTypeI;
+        private Gambler gambler;
+        private MatchService match;
+        private Player playerThatScoreFirstGoal;
+        private int numberOfGoals;
+
+        public BetBuilder (int amountGamble, BetTypeI betType, Gambler gambler, MatchService match) {
+            this.amountGamble = amountGamble;
+            this.betTypeI = betType;
+            this.gambler = gambler;
+            this.match = match;
+        }
+
+        public BetBuilder withPlayerThatScoreFirstGoal(Player playerThatScoreFirstGoal){
+            this.playerThatScoreFirstGoal = playerThatScoreFirstGoal;
+            return this;
+        }
+
+        public BetBuilder withNumberOfGoals(int numberOfGoals) {
+            this.numberOfGoals = numberOfGoals;
+            return this;
+        }
+
+        public Bet build(){
+            return new Bet(this);
+        }
     }
 
     public int gamble(){
@@ -28,11 +61,9 @@ public class Bet {
 
     public Gambler getGambler() { return gambler; }
 
-    public void setBetTypeI(BetTypeI betTypeI) { this.betTypeI = betTypeI; }
-
-    public void setAmountGamble(int i) { this.amountGamble = i; }
-
     public MatchService getMatch() { return match; }
 
     public Player getPlayerThatScoreFirstGoal() { return playerThatScoreFirstGoal; }
+
+    public int getNumberOfGoals() { return this.numberOfGoals; }
 }
